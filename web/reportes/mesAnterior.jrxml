@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="600" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="213fb588-c2a6-4cba-8470-d41a68492ea1">
+	<property name="ireport.zoom" value="1.2100000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select idticket as "N° Boleta",
+       to_char(ticketdate, 'DD-MM-YYYY') as "Fecha",
+       to_char(tickethour, 'HH24:MI') as "Hora",
+       case
+       when (state='V') then 'Vigente'
+       else 'Expiro'
+       end as "Estado",
+       concat('$', totaltotal) as "Total"
+from ticket
+where to_char(sysdate,'mm')-1=to_char(ticketdate,'mm')
+order by ticketdate]]>
+	</queryString>
+	<field name="N° Boleta" class="java.math.BigDecimal"/>
+	<field name="Fecha" class="java.lang.String"/>
+	<field name="Hora" class="java.lang.String"/>
+	<field name="Estado" class="java.lang.String"/>
+	<field name="Total" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="79" uuid="5670b2eb-ed1c-4040-9a56-45017d6ed575"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="68" y="33" width="84" height="20" uuid="704d2aa5-c9ad-4202-b9be-5466fa4b1537"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LOS YUYITOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="0" width="271" height="79" uuid="e38ad68d-6e4c-4553-bdfb-3e32d078bc7d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Boletas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="59" width="100" height="20" uuid="015c64c9-6f17-4498-8ebe-ab474f733d22"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MES ANTERIOR]]></text>
+			</staticText>
+			<image>
+				<reportElement x="14" y="11" width="54" height="58" uuid="93f3fb98-30ef-488d-8757-b91e6a65787d"/>
+				<imageExpression><![CDATA["C:\\Users\\andre\\Desktop\\reportesPDF\\web\\imagenes\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="423" y="0" width="132" height="35" uuid="ffc82645-7834-4810-b4a9-c3cee60d27fa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="34" width="555" height="1" uuid="69b8d7bb-39f9-4244-9958-5af818973c6f"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="19" width="555" height="1" uuid="3520f27f-42d0-4b07-9f3d-db7f0a19f847"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="3161ac68-1ae0-480c-aa47-d05761dae042"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Boleta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="20" uuid="448e5794-385e-4494-aeda-33c9c8b3f25c"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="112" height="20" uuid="d0b464fc-bf69-4238-b2bc-63aa34777374"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="0" width="116" height="20" uuid="3ef5764e-fdab-4c8b-86ec-2cf34e3d0cdf"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="428" y="1" width="127" height="20" uuid="5daadc59-ac29-40b5-92f0-06928b5892d4"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="8e7de042-2dd4-417a-b00a-0421356f7239"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="1" width="100" height="20" uuid="8a95a3f3-4dd1-4652-b6a9-f03fb984e4d7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{N° Boleta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="47db5a3b-e5f5-4c2d-909f-4587bcf06533"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="112" height="20" uuid="b8c7e6bb-1ebb-489d-b244-86344d3282cb"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="0" width="116" height="20" uuid="d2f5e432-1d3d-47c5-92fd-e5dbdd91fcfd"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="428" y="0" width="127" height="19" uuid="d35bdc80-8e75-4861-b72d-e0091e131dbf"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="3" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="190" y="11" width="101" height="20" uuid="9a87b237-8b46-4222-a632-d6c0c8f23c1a"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="291" y="11" width="53" height="20" uuid="4675d716-e361-4756-8e03-f4faa101adee"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="4" splitType="Stretch"/>
+	</summary>
+</jasperReport>

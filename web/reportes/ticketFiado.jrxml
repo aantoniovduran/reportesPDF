@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="700" pageHeight="500" whenNoDataType="AllSectionsNoDetail" columnWidth="660" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="12d8bc6e-9667-4289-aef9-ced39058d90b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select c.name1 || ' ' || c.lastname1 as "nombre",
+       t.idticket as "nro boleta",
+       to_char(t.ticketdate, 'DD-MM-YYYY') as "fecha",
+       to_char(t.tickethour,'HH24:MI') as "hora",
+       case
+       when (t.state='V') then 'Vigente'
+       else 'Expiro'
+       end as "estado",
+       concat('$',t.totaltotal) as "total",
+       case
+       when (t.idtrusted=1) then 'Si'
+       else 'No'
+       end as "fiado"
+from ticket t join client c
+on(t.idclient=c.idclient)
+where idtrusted=1]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="nro boleta" class="java.math.BigDecimal"/>
+	<field name="fecha" class="java.lang.String"/>
+	<field name="hora" class="java.lang.String"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="total" class="java.lang.String"/>
+	<field name="fiado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="63" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="660" height="63" uuid="c6d051f5-4f1d-4dae-afa7-07cee7e00e7b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="660" height="47" uuid="4de85795-b4dd-4a2e-a62b-eb44ef0ec808"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Boletas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="56" y="20" width="100" height="23" uuid="affa92d9-2c6a-4d45-8b71-0fa1620efe0a"/>
+				<textElement verticalAlignment="Top">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LOS YUYITOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="253" y="43" width="147" height="20" uuid="5f431f68-f127-44a9-82bd-9204ed1c4f72"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLIENTES QUE FIARON]]></text>
+			</staticText>
+			<image>
+				<reportElement x="11" y="5" width="45" height="42" uuid="7226c06c-ed65-4427-94c2-5fdd196f1fac"/>
+				<imageExpression><![CDATA["C:\\Users\\andre\\Desktop\\reportesPDF\\web\\imagenes\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="511" y="0" width="149" height="35" uuid="ba5a6634-d538-4b95-9643-0bb1b5acd805"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="34" width="660" height="1" uuid="c500c33b-c3de-4c9b-994b-28ab5b6b0c03"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="5a402510-1ea2-4e94-9e36-d0e2d7f4338d"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="100" height="20" uuid="6432f109-d507-4c72-91f1-309ec95ac648"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="100" height="20" uuid="42b095f5-ccd2-4a90-999a-a164afec0721"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="0" width="100" height="20" uuid="4a9f6092-34ed-4305-94d2-de80e618b301"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="100" height="20" uuid="f1c9896a-a7bd-4581-b702-cddde8e9a905"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="19" width="660" height="1" uuid="a492259a-63e1-4373-8f27-172ea6235e99"/>
+			</line>
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="20" uuid="422c82ce-ddef-4a44-89e6-dc89b5c1cb82"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Boleta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="599" y="0" width="61" height="20" uuid="cd0358eb-fcb2-4563-b05e-c4922c0b4e07"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fiado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="991da53d-e62d-4693-82bf-7a27eeabc46f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="20" uuid="4c918673-740f-4d12-bf96-38e0c335c1cb"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="0" width="100" height="20" uuid="7e4c1bcd-ffa6-4069-97de-9ca5783c62c1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="499" y="0" width="100" height="20" uuid="36b449ee-9d4b-4a46-907f-1fcea3cea0e9"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20" uuid="19fc1839-f5c3-4203-adc1-d13c3262e42c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="19" width="660" height="1" uuid="2695dd3b-872a-4dcf-bc89-0567cd10f12e"/>
+			</line>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="7c7563d2-9437-4146-85a3-777cf832e5d3"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nro boleta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="599" y="0" width="61" height="19" uuid="a3127e7f-7c16-4a88-9094-cfecb18c438d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{fiado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="253" y="10" width="94" height="20" uuid="d518841d-5b08-46ab-acb2-07f3d956e6f5"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="349" y="10" width="54" height="20" uuid="7ebb79bd-85f0-4abd-8155-603734a178a6"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="6" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="client" pageWidth="815" pageHeight="500" whenNoDataType="AllSectionsNoDetail" columnWidth="775" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b375fb2d-fa46-4ecd-a915-20e0f3c69901">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select idclient as "N° Cliente",
+       clientrut as "Rut",
+       name1 as "Nombre",
+       lastname1 ||' '|| lastname2 as "Apellidos",
+       to_char(birthdate,'DD-MM-YYYY') as "Fecha Nacimiento",
+       concat('+', cellphone) as "Celular",
+       case
+       when (blacklist=1) then 'si'
+       else 'no'
+       end as "Puede fiar",
+       
+       case
+       when (state=1) then 'Vigente'
+       else 'Eliminado'
+       end as "Estado"
+from client]]>
+	</queryString>
+	<field name="N° Cliente" class="java.math.BigDecimal"/>
+	<field name="Rut" class="java.lang.String"/>
+	<field name="Nombre" class="java.lang.String"/>
+	<field name="Apellidos" class="java.lang.String"/>
+	<field name="Fecha Nacimiento" class="java.lang.String"/>
+	<field name="Celular" class="java.lang.String"/>
+	<field name="Puede fiar" class="java.lang.String"/>
+	<field name="Estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="68" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="774" height="68" uuid="bb661b16-2c22-46ab-a840-26112cf630aa"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="775" height="68" uuid="6734a2f3-4b74-40e1-9db1-c0a8d6d50ce1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Clientes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="53" y="27" width="87" height="20" uuid="72432854-7769-4ee3-961d-3eface35f259"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LOS YUYITOS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="6" y="12" width="57" height="46" uuid="598f0635-03d0-48c5-9147-d6c39ef88b8f"/>
+				<imageExpression><![CDATA["C:\\Users\\andre\\Desktop\\reportesPDF\\web\\imagenes\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="650" y="0" width="124" height="35" uuid="f41ab334-cb08-4964-9c3f-f1a590bd842a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="34" width="774" height="1" uuid="253bd035-b41b-4b4b-a19f-d20d257aa700"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="19" width="774" height="1" uuid="6ec1ef2d-fcde-4116-92f1-fe6730fcce08"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="85" height="20" uuid="1a5a0152-a8f8-4170-a65e-4dbc89da2b9a"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="85" y="0" width="100" height="20" uuid="29099856-bb57-4e54-895e-96bb528fac5a"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rut]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="0" width="100" height="20" uuid="d8926517-0c04-45ff-9cd1-937acf3dea89"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="0" width="100" height="20" uuid="15589395-a0e4-4d85-a369-29a7766a3e0d"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="385" y="0" width="125" height="20" uuid="2ac49e95-0455-4c89-a4f9-2d8254f52391"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Nacimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="510" y="0" width="100" height="20" uuid="8bd33c80-19e4-4aff-812a-886d91892267"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Celular]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="610" y="0" width="100" height="20" uuid="496cdfd7-a6b2-4261-b153-f5f041db3092"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Puede fiar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="710" y="0" width="65" height="20" uuid="31650bd9-3f07-4fbb-be60-3bf13f0b7335"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="20" width="774" height="1" uuid="745dd964-1bca-4455-824c-5ceb37116a14"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="85" height="20" uuid="a40109a3-b8cc-4dc1-a214-6390a901c0c8"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{N° Cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="85" y="0" width="100" height="20" uuid="ae59c2f6-a9b6-4af7-b1dc-1422435e449c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Rut}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="100" height="20" uuid="75f1b33e-2c8c-40e7-89c1-987846590c55"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="0" width="100" height="20" uuid="725a5c6b-2504-4648-bac3-eb5342e88769"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="385" y="0" width="125" height="20" uuid="bcd7bf2b-a2fc-4b4b-bc0a-99206b294fb1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Fecha Nacimiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="510" y="0" width="100" height="20" uuid="f87f8328-b736-44c4-adf8-66d0836abaac"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Celular}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="610" y="0" width="100" height="20" uuid="b0718219-c186-4193-9259-420f3bfce10e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Puede fiar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="710" y="1" width="65" height="20" uuid="b17709fa-aa5a-4ec0-a67e-5e8c4f486f7c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="331" y="17" width="69" height="20" uuid="5e5fc4a6-3e10-4ed6-b988-5619f209cb45"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="400" y="17" width="45" height="20" uuid="ed86a98d-d3fb-4abe-8ae4-6e59f79269be"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="7" splitType="Stretch"/>
+	</summary>
+</jasperReport>

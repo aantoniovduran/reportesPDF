@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="980" pageHeight="500" whenNoDataType="AllSectionsNoDetail" columnWidth="940" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5ec8d995-1cb9-4ae9-8e6a-59f4a773876a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="108"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select o.orderid as "nro orden",
+       od.odidbarcode as "nro producto",
+       p.productname as "nombre producto",
+       to_char(o.orderdate,'DD-MM-YYYY') as "fecha orden",
+       to_char(o.orderhour,'HH24:MI') as "hora orden",
+       case
+       when (o.state='E') then 'Espera'
+       else 'Listo'
+       end as "estado",
+       nvl(to_char(o.receptiondate, 'DD-MM-YYYY'),'*****') as "fecha recepcion",
+       nvl(to_char(o.receptionhour, 'HH24:MI'),'*****') as "hora recepcion",
+       od.quantity as "cantidad",
+       concat('$', od.total) as "total"
+from orderproduct o inner join orderdetails od
+on(o.orderid=od.odorderid)
+join product p 
+on(od.odidbarcode=p.idbarcode)
+order by o.orderid]]>
+	</queryString>
+	<field name="nro orden" class="java.math.BigDecimal"/>
+	<field name="nro producto" class="java.math.BigDecimal"/>
+	<field name="nombre producto" class="java.lang.String"/>
+	<field name="fecha orden" class="java.lang.String"/>
+	<field name="hora orden" class="java.lang.String"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="fecha recepcion" class="java.lang.String"/>
+	<field name="hora recepcion" class="java.lang.String"/>
+	<field name="cantidad" class="java.math.BigDecimal"/>
+	<field name="total" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="0" width="940" height="79" uuid="6412dfd6-6ac7-4701-902c-03d1e587ec10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="60" y="32" width="100" height="20" uuid="ebf8f614-3ae7-4be7-ad5a-f600c61648b5"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LOS YUYITOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="0" width="517" height="79" uuid="aef2e43a-fb42-4cb3-bdd6-0a3fe03d527b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Ordenes]]></text>
+			</staticText>
+			<image>
+				<reportElement x="6" y="11" width="54" height="58" uuid="d634bdad-2812-4f9b-93d9-4fd05fd1b395"/>
+				<imageExpression><![CDATA["C:\\Users\\andre\\Desktop\\reportesPDF\\web\\imagenes\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="35" width="940" height="1" uuid="4c9abb08-1c4e-46b2-9d35-cc819ff58020"/>
+			</line>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="786" y="0" width="154" height="36" uuid="da5a6faa-b823-4549-ab84-530000b9568e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="73" height="20" uuid="607ba738-f129-4acd-af8a-87023a43bd77"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° orden]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="73" y="0" width="87" height="20" uuid="1bf32fc2-823d-4169-b9fa-067b6ab84cbb"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="0" width="118" height="20" uuid="a84ec78d-8c26-466d-91bb-78a1541a3ceb"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="0" width="100" height="20" uuid="9d76261e-53e2-4e9e-8831-21364e536e1f"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Orden]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="0" width="100" height="20" uuid="cc30f343-0e54-448d-b0f6-56ec54f20e34"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora Orden]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="478" y="0" width="76" height="20" uuid="4e5805b8-2886-4159-abea-0ad035b487cc"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="554" y="0" width="100" height="20" uuid="18c95d67-ccfe-45cf-a90c-66f4dd8b73ae"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Recepcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="654" y="0" width="100" height="20" uuid="b267787b-145f-41f6-9545-2604ce87c002"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora Recepcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="754" y="0" width="100" height="20" uuid="2a9b761e-b46c-433e-a283-d704152547a1"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="854" y="0" width="86" height="20" uuid="08ce10a2-a379-49df-88aa-81140a970765"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="20" width="940" height="1" uuid="e6253167-351f-4b6c-9a73-94e0df523829"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="73" height="20" uuid="f1981c68-3147-4f97-8450-00d1fba9deb5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nro orden}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="0" width="87" height="20" uuid="9eb15f8d-05b8-4ef6-90f5-212cf910f6f4"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nro producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="118" height="20" uuid="d2912a82-a480-4eb9-baba-c628ec980f47"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nombre producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="0" width="100" height="20" uuid="1a2c1bc9-0cef-4dc0-9ee1-0e93ac3194f5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{fecha orden}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="478" y="0" width="76" height="20" uuid="9388da0c-1cea-4d5c-96d3-c46e535744a5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="554" y="0" width="100" height="20" uuid="0a774e6f-edfa-4ab9-83f8-e28225001a1e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{fecha recepcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="654" y="0" width="100" height="20" uuid="a9f54f71-297b-45f8-8874-9cc94216f3fb"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{hora recepcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="754" y="0" width="100" height="20" uuid="f702c282-d039-470a-8dcc-f32d5ceb5ff7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="854" y="0" width="86" height="20" uuid="81dd7255-768c-4742-9acc-366b2264f2ca"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="0" width="100" height="20" uuid="1636a82e-c3eb-4323-8332-f0adbeb606d6"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{hora orden}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="20" width="940" height="1" uuid="b19e596a-459b-4c14-896f-cc9b326915d6"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="4" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="378" y="26" width="87" height="20" uuid="46a99382-028c-4d8f-92ed-7c63aeddb29d"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="465" y="26" width="47" height="20" uuid="58a86a0f-a280-4461-8706-c41a82d55241"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="4" splitType="Stretch"/>
+	</summary>
+</jasperReport>
