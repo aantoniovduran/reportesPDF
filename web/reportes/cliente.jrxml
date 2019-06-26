@@ -45,16 +45,19 @@ from client]]>
 				<text><![CDATA[Reporte de Clientes]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="53" y="27" width="87" height="20" uuid="72432854-7769-4ee3-961d-3eface35f259"/>
-				<textElement>
+				<reportElement x="11" y="31" width="87" height="20" uuid="72432854-7769-4ee3-961d-3eface35f259"/>
+				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[LOS YUYITOS]]></text>
 			</staticText>
-			<image>
-				<reportElement x="6" y="12" width="57" height="46" uuid="598f0635-03d0-48c5-9147-d6c39ef88b8f"/>
-				<imageExpression><![CDATA["C:\\Users\\andre\\Desktop\\reportesPDF\\web\\imagenes\\logo.jpg"]]></imageExpression>
-			</image>
+			<staticText>
+				<reportElement x="11" y="11" width="87" height="20" uuid="6ea6f81d-a283-4e2d-a8c8-762cbc2b5638"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALMACEN]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>

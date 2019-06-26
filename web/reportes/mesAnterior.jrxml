@@ -30,8 +30,8 @@ order by ticketdate]]>
 				<reportElement x="0" y="0" width="555" height="79" uuid="5670b2eb-ed1c-4040-9a56-45017d6ed575"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="68" y="33" width="84" height="20" uuid="704d2aa5-c9ad-4202-b9be-5466fa4b1537"/>
-				<textElement>
+				<reportElement x="16" y="39" width="96" height="20" uuid="704d2aa5-c9ad-4202-b9be-5466fa4b1537"/>
+				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[LOS YUYITOS]]></text>
@@ -50,10 +50,13 @@ order by ticketdate]]>
 				</textElement>
 				<text><![CDATA[MES ANTERIOR]]></text>
 			</staticText>
-			<image>
-				<reportElement x="14" y="11" width="54" height="58" uuid="93f3fb98-30ef-488d-8757-b91e6a65787d"/>
-				<imageExpression><![CDATA["C:\\Users\\andre\\Desktop\\reportesPDF\\web\\imagenes\\logo.jpg"]]></imageExpression>
-			</image>
+			<staticText>
+				<reportElement x="16" y="19" width="96" height="20" uuid="d744a9ab-fedd-4c7f-9ac3-df550cc25369"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALMACEN]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>

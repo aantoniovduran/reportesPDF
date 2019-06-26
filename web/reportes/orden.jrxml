@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="980" pageHeight="500" whenNoDataType="AllSectionsNoDetail" columnWidth="940" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5ec8d995-1cb9-4ae9-8e6a-59f4a773876a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="108"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[select o.orderid as "nro orden",
@@ -42,8 +42,8 @@ order by o.orderid]]>
 				<reportElement x="1" y="0" width="940" height="79" uuid="6412dfd6-6ac7-4701-902c-03d1e587ec10"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="60" y="32" width="100" height="20" uuid="ebf8f614-3ae7-4be7-ad5a-f600c61648b5"/>
-				<textElement>
+				<reportElement x="18" y="37" width="100" height="20" uuid="ebf8f614-3ae7-4be7-ad5a-f600c61648b5"/>
+				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[LOS YUYITOS]]></text>
@@ -55,10 +55,13 @@ order by o.orderid]]>
 				</textElement>
 				<text><![CDATA[Reporte de Ordenes]]></text>
 			</staticText>
-			<image>
-				<reportElement x="6" y="11" width="54" height="58" uuid="d634bdad-2812-4f9b-93d9-4fd05fd1b395"/>
-				<imageExpression><![CDATA["C:\\Users\\andre\\Desktop\\reportesPDF\\web\\imagenes\\logo.jpg"]]></imageExpression>
-			</image>
+			<staticText>
+				<reportElement x="18" y="17" width="100" height="20" uuid="8c3833fb-0cb5-4c56-a473-b59dcb838719"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALMACEN]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>

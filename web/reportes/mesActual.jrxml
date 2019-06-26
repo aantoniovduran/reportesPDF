@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="600" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2001db1b-f556-42e7-a418-2f675d3e6bfc">
-	<property name="ireport.zoom" value="1.4641000000000006"/>
-	<property name="ireport.x" value="14"/>
-	<property name="ireport.y" value="3"/>
+	<property name="ireport.zoom" value="1.1000000000000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[select idticket as "N° Boleta",
        to_char(ticketdate, 'DD-MM-YYYY') as "Fecha",
@@ -30,8 +30,8 @@ order by ticketdate]]>
 				<reportElement x="0" y="0" width="555" height="79" uuid="3572fdcb-8d4e-4746-97e5-7c063bc9b4ef"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="64" y="31" width="85" height="20" uuid="93dbf5ca-8877-41ae-a12b-c298d611840c"/>
-				<textElement>
+				<reportElement x="15" y="39" width="85" height="20" uuid="93dbf5ca-8877-41ae-a12b-c298d611840c"/>
+				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[LOS YUYITOS]]></text>
@@ -50,10 +50,13 @@ order by ticketdate]]>
 				</textElement>
 				<text><![CDATA[MES ACTUAL]]></text>
 			</staticText>
-			<image>
-				<reportElement x="10" y="11" width="54" height="58" uuid="dbaa4bd9-1331-44bf-b80d-8572b5fd6da4"/>
-				<imageExpression><![CDATA["C:\\Users\\andre\\Desktop\\reportesPDF\\web\\imagenes\\logo.jpg"]]></imageExpression>
-			</image>
+			<staticText>
+				<reportElement x="15" y="19" width="85" height="20" uuid="831a467c-3a2c-4db8-a5b7-048bc8cc34f3"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALMACEN]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>

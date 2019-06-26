@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="600" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="96638f0b-24b4-41f3-b925-d82a28a530e1">
 	<property name="ireport.zoom" value="1.0000000000000004"/>
-	<property name="ireport.x" value="74"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[select pr.companyname as "empresa",
@@ -39,16 +39,19 @@ on(p.idprovider=p.idprovider)]]>
 				<text><![CDATA[Reporte de Productos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="60" y="32" width="100" height="20" uuid="e9c9630f-3c2e-4324-abe1-762134254d8d"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<reportElement x="18" y="40" width="100" height="20" uuid="e9c9630f-3c2e-4324-abe1-762134254d8d"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[LOS YUYITOS]]></text>
 			</staticText>
-			<image>
-				<reportElement x="6" y="11" width="54" height="58" uuid="079cea98-5718-43a2-a768-dc344e6195eb"/>
-				<imageExpression><![CDATA["C:\\Users\\andre\\Desktop\\reportesPDF\\web\\imagenes\\logo.jpg"]]></imageExpression>
-			</image>
+			<staticText>
+				<reportElement x="18" y="20" width="100" height="20" uuid="3667c4f8-8234-47d7-8b2e-c50786694df4"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALMACEN]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>

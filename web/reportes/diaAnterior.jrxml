@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<queryString>
 		<![CDATA[select idticket as "nro boleta",
        to_char(ticketdate, 'DD-MM-YYYY') as "fecha",
        to_char(tickethour, 'HH24:MI') as "hora",
@@ -30,8 +30,8 @@ order by ticketdate]]>
 				<reportElement x="0" y="0" width="555" height="79" uuid="95390a2e-d3df-45b9-9480-669f321c9b6b"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="62" y="29" width="82" height="20" uuid="f10d46d5-d3b0-4587-aff9-831bd102384f"/>
-				<textElement>
+				<reportElement x="18" y="39" width="82" height="20" uuid="f10d46d5-d3b0-4587-aff9-831bd102384f"/>
+				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[LOS YUYITOS]]></text>
@@ -50,10 +50,13 @@ order by ticketdate]]>
 				</textElement>
 				<text><![CDATA[DIA ANTERIOR]]></text>
 			</staticText>
-			<image>
-				<reportElement x="8" y="11" width="54" height="58" uuid="c9b57af6-b42a-4159-bbd7-7e250b153e94"/>
-				<imageExpression><![CDATA["C:\\Users\\andre\\Desktop\\reportesPDF\\web\\imagenes\\logo.jpg"]]></imageExpression>
-			</image>
+			<staticText>
+				<reportElement x="18" y="19" width="82" height="20" uuid="99229f78-efd6-4347-9597-c76b4ddcb1c5"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALMACEN]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>

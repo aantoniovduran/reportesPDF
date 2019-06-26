@@ -32,20 +32,20 @@ where idtrusted=1]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="63" splitType="Stretch">
+		<band height="67" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="0" width="660" height="63" uuid="c6d051f5-4f1d-4dae-afa7-07cee7e00e7b"/>
+				<reportElement x="0" y="0" width="660" height="67" uuid="c6d051f5-4f1d-4dae-afa7-07cee7e00e7b"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="0" y="0" width="660" height="47" uuid="4de85795-b4dd-4a2e-a62b-eb44ef0ec808"/>
+				<reportElement x="215" y="4" width="233" height="43" uuid="4de85795-b4dd-4a2e-a62b-eb44ef0ec808"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="24" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reporte de Boletas]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="56" y="20" width="100" height="23" uuid="affa92d9-2c6a-4d45-8b71-0fa1620efe0a"/>
-				<textElement verticalAlignment="Top">
+				<reportElement x="15" y="32" width="100" height="31" uuid="affa92d9-2c6a-4d45-8b71-0fa1620efe0a"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[LOS YUYITOS]]></text>
@@ -53,14 +53,17 @@ where idtrusted=1]]>
 			<staticText>
 				<reportElement x="253" y="43" width="147" height="20" uuid="5f431f68-f127-44a9-82bd-9204ed1c4f72"/>
 				<textElement>
-					<font size="12" isBold="true"/>
+					<font size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[CLIENTES QUE FIARON]]></text>
 			</staticText>
-			<image>
-				<reportElement x="11" y="5" width="45" height="42" uuid="7226c06c-ed65-4427-94c2-5fdd196f1fac"/>
-				<imageExpression><![CDATA["C:\\Users\\andre\\Desktop\\reportesPDF\\web\\imagenes\\logo.jpg"]]></imageExpression>
-			</image>
+			<staticText>
+				<reportElement x="15" y="15" width="100" height="17" uuid="7b375bb4-e2cd-44c2-a8a2-2bb1b548ef88"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALMACEN]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
