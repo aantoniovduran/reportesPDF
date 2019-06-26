@@ -17,7 +17,7 @@
         Connection conn = null;
     try {
     Class.forName("oracle.jdbc.OracleDriver");
-    conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "proyecto", "1234");
+    conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "YuyitosDb", "1234");
     out.println("Conexion establecida!");
     }
     catch (Exception ex)
